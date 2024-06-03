@@ -79,16 +79,17 @@ def say_voice(text):
     engine.stop()
 
 
-def main():
+def test():
     while True:
         query = listen_comand()
         for k, v in commands_dict['commands'].items():
             if query in v:
-                print(globals()[k]())
+                return globals()[k]()
+        print(query)
 
 
 if __name__ == '__main__':
-    main()
+    print(test())
     # engine = pyttsx3.init()
     # voices = engine.getProperty('voices')
     # for voice in voices:
